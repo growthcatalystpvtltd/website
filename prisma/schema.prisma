@@ -1,0 +1,106 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+}
+
+model User {
+  id        String     @id @default(cuid())
+  email     String     @unique
+  password  String
+  name      String?
+  role      Role       @default(ADMIN)
+  posts     BlogPost[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model BlogCategory {
+  id        String     @id @default(cuid())
+  name      String     @unique
+  slug      String     @unique
+  posts     BlogPost[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model BlogPost {
+  id         String       @id @default(cuid())
+  title      String
+  slug       String       @unique
+  excerpt    String?
+  content    String       @db.Text
+  published  Boolean      @default(false)
+  categoryId String
+  category   BlogCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  authorId   String?
+  author     User?        @relation(fields: [authorId], references: [id], onDelete: SetNull)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@index([categoryId])
+  @@index([slug])
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String   @db.Text
+  features    String[]
+  imageUrl    String?
+  published   Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt
+}
+
+model Client {
+  id      String  @id @default(cuid())
+  name    String
+  logoUrl String?
+  order   Int     @default(0)
+  active  Boolean @default(true)
+}
+
+model TeamMember {
+  id        String  @id @default(cuid())
+  name      String
+  role      String
+  bio       String? @db.Text
+  imageUrl  String?
+  linkedin  String?
+  order     Int     @default(0)
+  published Boolean @default(true)
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  company   String?
+  subject   String?
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
