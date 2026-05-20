@@ -1,36 +1,51 @@
+import {
+  Compass,
+  LayoutTemplate,
+  Code2,
+  ShieldCheck,
+  Rocket,
+  TrendingUp,
+} from "lucide-react";
+
 const steps = [
   {
     number: "01",
+    icon: Compass,
     title: "Discovery & Alignment",
     description:
       "We map your business objectives, stakeholders, and constraints. Every engagement begins with clarity — not assumptions.",
   },
   {
     number: "02",
+    icon: LayoutTemplate,
     title: "Architecture & Planning",
     description:
       "Technical architecture, sprint planning, and milestone definitions. Transparent roadmaps with measurable deliverables.",
   },
   {
     number: "03",
+    icon: Code2,
     title: "Iterative Development",
     description:
       "Agile sprints with continuous integration, code reviews, and regular demos. You see progress at every stage.",
   },
   {
     number: "04",
+    icon: ShieldCheck,
     title: "Quality Assurance",
     description:
       "Automated testing, security audits, and performance benchmarks. Nothing ships without passing our quality gates.",
   },
   {
     number: "05",
+    icon: Rocket,
     title: "Deployment & Handover",
     description:
       "Production deployment, documentation, and team training. Your team owns the solution from day one.",
   },
   {
     number: "06",
+    icon: TrendingUp,
     title: "Growth & Optimization",
     description:
       "Post-launch monitoring, analytics, and iterative improvements. We stay as your catalyst for sustained growth.",
@@ -42,46 +57,34 @@ export default function ProcessTimeline() {
     <section className="border-t border-border bg-white px-6 py-32">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-xl">
-          <p className="text-xs font-medium tracking-[0.3em] text-muted uppercase">
+          <p className="text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">
             Our Process
           </p>
-          <h2 className="mt-4 text-3xl font-light tracking-tight md:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
             Six disciplined steps to deliver excellence
           </h2>
-          <p className="mt-4 text-sm leading-relaxed text-muted">
+          <p className="mt-4 text-sm font-medium leading-relaxed text-neutral-800">
             Growth Catalyst is strictly process-oriented. Our methodology eliminates ambiguity and ensures predictable, high-quality outcomes for every project.
           </p>
         </div>
 
-        <div className="relative mt-20">
-          <div className="absolute top-0 bottom-0 left-4 hidden w-px bg-border md:left-1/2 md:block md:-translate-x-px" />
-
-          <div className="space-y-16 md:space-y-24">
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className={`relative flex flex-col gap-6 md:flex-row md:items-start ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                <div className="hidden md:block md:w-1/2" />
-                <div
-                  className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}
-                >
-                  <span className="text-xs font-medium tracking-widest text-muted">
-                    Step {step.number}
-                  </span>
-                  <h3 className="mt-2 text-xl font-medium">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    {step.description}
-                  </p>
-                </div>
-                <div className="absolute left-4 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-black bg-white md:left-1/2">
-                  <span className="text-[10px] font-medium">{step.number}</span>
-                </div>
+        <div className="mt-20 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <article key={step.number} className="bg-white p-8">
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-10 w-10 items-center justify-center border border-black bg-black text-white">
+                  <step.icon size={18} />
+                </span>
+                <span className="text-3xl font-bold tracking-tight text-neutral-200">
+                  {step.number}
+                </span>
               </div>
-            ))}
-          </div>
+              <h3 className="mt-6 text-lg font-bold">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+                {step.description}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

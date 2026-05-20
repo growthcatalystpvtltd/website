@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Send, CheckCircle2 } from "lucide-react";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -30,13 +31,34 @@ export default function ContactForm() {
   }
 
   const inputClass =
-    "w-full border border-border bg-white px-4 py-3 text-sm outline-none focus:border-black";
+    "w-full border border-border bg-white px-4 py-3 text-sm text-neutral-900 outline-none focus:border-black";
+
+  if (status === "success") {
+    return (
+      <div className="flex flex-col items-center justify-center border border-border bg-white p-12 text-center">
+        <span className="inline-flex h-14 w-14 items-center justify-center border border-black bg-black text-white">
+          <CheckCircle2 size={24} />
+        </span>
+        <h2 className="mt-6 text-xl font-bold tracking-tight">Message received</h2>
+        <p className="mt-3 max-w-sm text-sm font-medium text-neutral-800">
+          Thank you for reaching out. Our team will get back to you within one business day.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-8 border border-black px-6 py-2.5 text-[11px] font-semibold tracking-widest uppercase hover:bg-black hover:text-white"
+        >
+          Send Another
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 border border-border bg-white p-8">
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-2 block text-xs tracking-widest uppercase">
+          <label htmlFor="name" className="mb-2 block text-[10px] font-bold tracking-widest uppercase">
             Name *
           </label>
           <input
@@ -48,7 +70,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-xs tracking-widest uppercase">
+          <label htmlFor="email" className="mb-2 block text-[10px] font-bold tracking-widest uppercase">
             Email *
           </label>
           <input
@@ -62,7 +84,7 @@ export default function ContactForm() {
         </div>
       </div>
       <div>
-        <label htmlFor="company" className="mb-2 block text-xs tracking-widest uppercase">
+        <label htmlFor="company" className="mb-2 block text-[10px] font-bold tracking-widest uppercase">
           Company
         </label>
         <input
@@ -73,7 +95,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="subject" className="mb-2 block text-xs tracking-widest uppercase">
+        <label htmlFor="subject" className="mb-2 block text-[10px] font-bold tracking-widest uppercase">
           Subject
         </label>
         <input
@@ -84,7 +106,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="message" className="mb-2 block text-xs tracking-widest uppercase">
+        <label htmlFor="message" className="mb-2 block text-[10px] font-bold tracking-widest uppercase">
           Message *
         </label>
         <textarea
@@ -99,15 +121,21 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full border border-black bg-black py-4 text-xs font-medium tracking-widest text-white uppercase disabled:opacity-50"
+        className="inline-flex w-full items-center justify-center gap-2 border border-black bg-black py-4 text-xs font-semibold tracking-widest text-white uppercase hover:opacity-80 disabled:opacity-50"
       >
-        {status === "loading" ? "Sending..." : "Send Message"}
+        {status === "loading" ? (
+          "Sending..."
+        ) : (
+          <>
+            <Send size={14} />
+            Send Message
+          </>
+        )}
       </button>
-      {status === "success" && (
-        <p className="text-center text-sm text-muted">Thank you. We&apos;ll be in touch shortly.</p>
-      )}
       {status === "error" && (
-        <p className="text-center text-sm text-red-600">Failed to send. Please try again or email us directly.</p>
+        <p className="text-center text-sm text-red-600">
+          Failed to send. Please try again or email us directly.
+        </p>
       )}
     </form>
   );

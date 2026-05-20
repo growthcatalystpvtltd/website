@@ -1,61 +1,110 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import { Users, ArrowUpRight, Briefcase } from "lucide-react";
+import { LinkedinIcon } from "@/components/icons/SocialIcons";
 import { prisma } from "@/lib/prisma";
+import { getSiteSetting } from "@/lib/site-settings";
+import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = { title: "Team" };
+export const metadata: Metadata = {
+  title: "Team",
+  description:
+    "Meet the team behind Growth Catalyst — engineers, designers, and consultants building Nepal's process-driven technology firm.",
+};
 
 export default async function TeamPage() {
-  const members = await prisma.teamMember
-    .findMany({ where: { published: true }, orderBy: { order: "asc" } })
-    .catch(() => []);
+  const [headline, intro, careersHeadline, careersIntro, members] = await Promise.all([
+    getSiteSetting("team_headline", "The people behind the process"),
+    getSiteSetting(
+      "team_intro",
+      "Our core team brings together engineering excellence, design discipline, and business acumen."
+    ),
+    getSiteSetting("careers_headline", "Join Growth Catalyst"),
+    getSiteSetting(
+      "careers_intro",
+      "We're always looking for disciplined engineers, designers, and consultants who believe in process-driven excellence."
+    ),
+    prisma.teamMember
+      .findMany({ where: { published: true }, orderBy: { order: "asc" } })
+      .catch(() => []),
+  ]);
+
+  const display =
+    members.length > 0
+      ? members
+      : [
+          { id: "1", name: "Leadership Team", role: "Strategy & Delivery", bio: "Guiding every engagement with process rigor and client focus.", imageUrl: null, linkedin: null },
+          { id: "2", name: "Engineering Team", role: "Development & QA", bio: "Building robust, scalable solutions across web, mobile, and AI.", imageUrl: null, linkedin: null },
+          { id: "3", name: "Design Team", role: "UX & Product", bio: "Crafting minimalist, user-centered experiences.", imageUrl: null, linkedin: null },
+        ];
 
   return (
     <div className="px-6 pt-32 pb-24">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-medium tracking-[0.3em] text-muted uppercase">Team</p>
-        <h1 className="mt-4 text-4xl font-light tracking-tight md:text-5xl">
-          The people behind the process
+        <p className="text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">Team</p>
+        <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+          {headline}
         </h1>
-        <p className="mt-6 max-w-xl text-sm text-muted">
-          Our core team brings together engineering excellence, design discipline, and business acumen.
-        </p>
+        <p className="mt-6 max-w-xl text-base font-medium text-neutral-800">{intro}</p>
 
-        {members.length === 0 ? (
-          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { name: "Leadership Team", role: "Strategy & Delivery", bio: "Guiding every engagement with process rigor and client focus." },
-              { name: "Engineering Team", role: "Development & QA", bio: "Building robust, scalable solutions across web, mobile, and AI." },
-              { name: "Design Team", role: "UX & Product", bio: "Crafting minimalist, user-centered experiences." },
-            ].map((m) => (
-              <div key={m.name} className="border border-border p-8">
-                <div className="mb-6 h-16 w-16 rounded-full border border-border bg-neutral-100" />
-                <h2 className="text-lg font-medium">{m.name}</h2>
-                <p className="mt-1 text-xs tracking-widest text-muted uppercase">{m.role}</p>
-                <p className="mt-4 text-sm text-muted">{m.bio}</p>
+        <div className="mt-20 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+          {display.map((member) => (
+            <article key={member.id} className="bg-white p-8">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center border border-border bg-neutral-100">
+                {member.imageUrl ? (
+                  <Image
+                    src={member.imageUrl}
+                    alt={member.name}
+                    width={64}
+                    height={64}
+                    className="h-full w-full object-cover grayscale"
+                    unoptimized
+                  />
+                ) : (
+                  <Users size={22} className="text-neutral-500" />
+                )}
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {members.map((member) => (
-              <div key={member.id} className="border border-border p-8">
-                <div className="mb-6 h-16 w-16 rounded-full border border-border bg-neutral-100" />
-                <h2 className="text-lg font-medium">{member.name}</h2>
-                <p className="mt-1 text-xs tracking-widest text-muted uppercase">{member.role}</p>
-                {member.bio && <p className="mt-4 text-sm text-muted">{member.bio}</p>}
-              </div>
-            ))}
-          </div>
-        )}
+              <h2 className="text-lg font-bold">{member.name}</h2>
+              <p className="mt-1 text-[10px] font-semibold tracking-widest text-neutral-600 uppercase">
+                {member.role}
+              </p>
+              {member.bio && (
+                <p className="mt-4 text-sm leading-relaxed text-neutral-700">{member.bio}</p>
+              )}
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-widest uppercase hover:underline"
+                >
+                  <LinkedinIcon size={12} />
+                  Connect
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
 
         <div className="mt-24 border-t border-border pt-16">
-          <p className="text-xs font-medium tracking-[0.3em] text-muted uppercase">Careers</p>
-          <h2 className="mt-4 text-2xl font-light">Join Growth Catalyst</h2>
-          <p className="mt-4 max-w-lg text-sm text-muted">
-            We&apos;re always looking for disciplined engineers, designers, and consultants who believe in process-driven excellence. Send your CV to info@growthcatalyst.com.np
+          <div className="flex items-center gap-3">
+            <Briefcase size={20} className="text-black" />
+            <p className="text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">Careers</p>
+          </div>
+          <h2 className="mt-4 text-2xl font-bold tracking-tight md:text-3xl">{careersHeadline}</h2>
+          <p className="mt-4 max-w-lg text-sm font-medium text-neutral-800">
+            {careersIntro} Send your CV to{" "}
+            <a href={`mailto:${siteConfig.email}`} className="font-semibold underline hover:no-underline">
+              {siteConfig.email}
+            </a>
           </p>
-          <Link href="/contact" className="mt-8 inline-block border border-black px-8 py-3 text-xs font-medium tracking-widest uppercase hover:bg-black hover:text-white">
+          <Link
+            href="/contact"
+            className="mt-8 inline-flex items-center gap-2 border border-black px-8 py-3 text-xs font-semibold tracking-widest uppercase hover:bg-black hover:text-white"
+          >
             Apply Now
+            <ArrowUpRight size={14} />
           </Link>
         </div>
       </div>

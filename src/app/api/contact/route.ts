@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
+import { sendContactNotification } from "@/lib/mailer";
 
 const schema = z.object({
   name: z.string().min(1),
@@ -16,6 +17,10 @@ export async function POST(req: Request) {
     const data = schema.parse(body);
 
     await prisma.contactMessage.create({ data });
+
+    sendContactNotification(data).catch((err) =>
+      console.error("[contact] email notify failed:", err)
+    );
 
     return NextResponse.json({ success: true });
   } catch {

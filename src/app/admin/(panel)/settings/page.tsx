@@ -7,8 +7,10 @@ export default async function AdminSettingsPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-light">Site Settings</h1>
-      <p className="mt-1 text-sm text-muted">Update homepage copy and core website content</p>
+      <h1 className="text-3xl font-bold tracking-tight">Site Settings</h1>
+      <p className="mt-1 text-sm text-neutral-700">
+        Edit dynamic copy across the public website. Changes apply instantly.
+      </p>
       <div className="mt-10">
         <SiteSettingsForm initialSettings={settings} />
       </div>
