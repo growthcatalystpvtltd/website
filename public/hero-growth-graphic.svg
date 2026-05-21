@@ -1,0 +1,49 @@
+<svg width="560" height="720" viewBox="0 0 560 720" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <!-- Growth trajectory -->
+  <path d="M80 620C180 520 220 380 280 280C340 180 400 120 480 80" stroke="black" stroke-opacity="0.35" stroke-width="1.5"/>
+  <path d="M80 620C200 480 260 320 360 200C420 140 460 100 500 60" stroke="black" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="6 10"/>
+
+  <!-- Process pipeline (6 steps) -->
+  <path d="M200 580V120" stroke="black" stroke-opacity="0.22" stroke-width="1"/>
+  <circle cx="200" cy="580" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
+  <circle cx="200" cy="488" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
+  <circle cx="200" cy="396" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
+  <circle cx="200" cy="304" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
+  <circle cx="200" cy="212" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
+  <circle cx="200" cy="120" r="8" stroke="black" stroke-width="1.5" fill="black" fill-opacity="0.08"/>
+
+  <text x="224" y="584" fill="black" fill-opacity="0.45" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">DISCOVER</text>
+  <text x="224" y="492" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">PLAN</text>
+  <text x="224" y="400" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">BUILD</text>
+  <text x="224" y="308" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">QA</text>
+  <text x="224" y="216" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">DEPLOY</text>
+  <text x="224" y="124" fill="black" fill-opacity="0.5" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em">GROW</text>
+
+  <!-- Catalyst hub -->
+  <circle cx="380" cy="360" r="52" stroke="black" stroke-opacity="0.3" stroke-width="1.25" fill="black" fill-opacity="0.04"/>
+  <circle cx="380" cy="360" r="8" fill="black" fill-opacity="0.35"/>
+  <text x="380" y="432" text-anchor="middle" fill="black" fill-opacity="0.5" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.2em">CATALYST</text>
+
+  <!-- Domain branches (toward content / left) -->
+  <path d="M328 360H120" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
+  <path d="M360 300C300 280 200 260 120 240" stroke="black" stroke-opacity="0.18" stroke-width="1"/>
+  <path d="M360 420C300 440 200 460 120 480" stroke="black" stroke-opacity="0.18" stroke-width="1"/>
+  <path d="M400 320C440 260 460 200 480 140" stroke="black" stroke-opacity="0.16" stroke-width="1"/>
+
+  <circle cx="120" cy="240" r="4" fill="black" fill-opacity="0.25"/>
+  <text x="132" y="244" fill="black" fill-opacity="0.42" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">eCOMMERCE</text>
+
+  <circle cx="120" cy="360" r="4" fill="black" fill-opacity="0.25"/>
+  <text x="132" y="364" fill="black" fill-opacity="0.42" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">FINTECH · ERP</text>
+
+  <circle cx="120" cy="480" r="4" fill="black" fill-opacity="0.25"/>
+  <text x="132" y="484" fill="black" fill-opacity="0.42" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">IoT · AI</text>
+
+  <circle cx="480" cy="140" r="4" fill="black" fill-opacity="0.22"/>
+  <text x="448" y="128" text-anchor="end" fill="black" fill-opacity="0.38" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">PROCESS</text>
+  <text x="448" y="142" text-anchor="end" fill="black" fill-opacity="0.38" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">FIRST</text>
+
+  <!-- Accent rings -->
+  <circle cx="380" cy="360" r="88" stroke="black" stroke-opacity="0.1" stroke-width="1"/>
+  <circle cx="380" cy="360" r="120" stroke="black" stroke-opacity="0.06" stroke-width="1"/>
+</svg>

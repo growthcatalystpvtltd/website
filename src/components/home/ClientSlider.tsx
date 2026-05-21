@@ -1,3 +1,5 @@
+import HomeSection from "@/components/home/HomeSection";
+
 interface Client {
   id: string;
   name: string;
@@ -23,7 +25,13 @@ export default function ClientSlider({ clients = fallbackClients }: ClientSlider
   const items = [...clients, ...clients];
 
   return (
-    <section className="border-t border-border bg-neutral-50 px-6 py-24 overflow-hidden">
+    <HomeSection
+      className="border-t border-border bg-white px-6 py-24"
+      // lines={[
+      //   { src: "/lines-clients.svg", placement: "top-left", speed: 0.32, opacity: 0.68 },
+      //   { src: "/lines-clients-accent.svg", placement: "bottom-right", speed: 0.2, opacity: 0.52 },
+      // ]}
+    >
       <div className="mx-auto max-w-6xl">
         <p className="text-center text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">
           Trusted By
@@ -33,7 +41,7 @@ export default function ClientSlider({ clients = fallbackClients }: ClientSlider
         </h2>
       </div>
 
-      <div className="relative mt-16">
+      <div className="relative mt-16 overflow-hidden">
         <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-neutral-50 to-transparent" />
         <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-neutral-50 to-transparent" />
 
@@ -48,7 +56,7 @@ export default function ClientSlider({ clients = fallbackClients }: ClientSlider
                 <img
                   src={client.logoUrl}
                   alt={client.name}
-                  className="h-16 w-auto max-w-[180px] object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                  className="h-16 w-auto max-w-[180px] object-contain transition-all"
                 />
               ) : (
                 <span className="whitespace-nowrap text-lg font-bold tracking-widest text-neutral-700 uppercase">
@@ -59,6 +67,6 @@ export default function ClientSlider({ clients = fallbackClients }: ClientSlider
           ))}
         </div>
       </div>
-    </section>
+    </HomeSection>
   );
 }

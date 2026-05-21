@@ -1,6 +1,7 @@
 import Hero from "@/components/home/Hero";
 import ProcessTimeline from "@/components/home/ProcessTimeline";
 import ClientSlider from "@/components/home/ClientSlider";
+import HomeSection from "@/components/home/HomeSection";
 import { getSiteSetting } from "@/lib/site-settings";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
@@ -47,7 +48,13 @@ export default async function HomePage() {
       <ProcessTimeline />
       <ClientSlider clients={clients.length > 0 ? clients : undefined} />
 
-      <section className="border-t border-border px-6 py-32">
+      <HomeSection
+        className="border-t border-border bg-white px-6 py-32"
+        lines={[
+          { src: "/lines-cta.svg", placement: "top-right", speed: 0.26, opacity: 0.7 },
+          { src: "/lines-cta-accent.svg", placement: "bottom-left", speed: 0.4, opacity: 0.54 },
+        ]}
+      >
         <div className="mx-auto max-w-6xl text-center">
           <p className="text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">
             Ready to grow?
@@ -66,7 +73,7 @@ export default async function HomePage() {
             <ArrowUpRight size={16} />
           </Link>
         </div>
-      </section>
+      </HomeSection>
     </>
   );
 }

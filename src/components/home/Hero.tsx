@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import HomeSection from "@/components/home/HomeSection";
+import HeroGraphic from "@/components/home/HeroGraphic";
 
 interface HeroProps {
   eyebrow?: string;
@@ -17,49 +19,58 @@ export default function Hero({
   ctaSecondary = "Our Philosophy",
 }: HeroProps) {
   return (
-    <section className="flex min-h-screen flex-col justify-center px-6 pt-32 pb-24">
-      <div className="mx-auto max-w-6xl">
-        <p className="flex items-center gap-2 text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">
-          <Sparkles size={14} className="text-black" />
-          {eyebrow}
-        </p>
-        <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-black md:text-6xl lg:text-7xl">
-          {headline}
-        </h1>
-        <p className="mt-8 max-w-2xl text-base font-medium leading-relaxed text-neutral-800 md:text-lg">
-          {subheadline}
-        </p>
-        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center gap-2 border border-black bg-black px-8 py-4 text-xs font-semibold tracking-widest text-white uppercase transition-opacity hover:opacity-80"
-          >
-            {ctaPrimary}
-            <ArrowUpRight size={16} />
-          </Link>
-          <Link
-            href="/about"
-            className="inline-flex items-center justify-center border border-black px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-colors hover:bg-black hover:text-white"
-          >
-            {ctaSecondary}
-          </Link>
+    <HomeSection
+      className="flex min-h-screen flex-col justify-center px-6 pt-32 pb-24"
+      lines={[
+        { src: "/lines-hero-accent.svg", placement: "bottom-left", speed: 0.32, opacity: 0.4 },
+      ]}
+    >
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1fr_minmax(280px,46%)] lg:gap-8 xl:grid-cols-[1.05fr_0.95fr] xl:gap-4">
+        <div>
+          <p className="flex items-center gap-2 text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">
+            <Sparkles size={14} className="text-black" />
+            {eyebrow}
+          </p>
+          <h1 className="mt-8 max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight text-black md:text-5xl lg:text-6xl xl:text-7xl">
+            {headline}
+          </h1>
+          <p className="mt-8 max-w-2xl text-base font-medium leading-relaxed text-neutral-800 md:text-lg">
+            {subheadline}
+          </p>
+          <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 border border-black bg-black px-8 py-4 text-xs font-semibold tracking-widest text-white uppercase transition-opacity hover:opacity-80"
+            >
+              {ctaPrimary}
+              <ArrowUpRight size={16} />
+            </Link>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center border border-black px-8 py-4 text-xs font-semibold tracking-widest uppercase transition-colors hover:bg-black hover:text-white"
+            >
+              {ctaSecondary}
+            </Link>
+          </div>
+          <div className="mt-24 grid grid-cols-2 gap-8 border-t border-border pt-12 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+            {[
+              { label: "Domains", value: "eCommerce · IoT · FinTech" },
+              { label: "Solutions", value: "ERP · CMS · Custom" },
+              { label: "Clients", value: "Enterprise & SME" },
+              { label: "Approach", value: "Process-First" },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="text-[10px] font-bold tracking-widest text-neutral-600 uppercase">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-sm font-semibold text-black">{item.value}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="mt-24 grid grid-cols-2 gap-8 border-t border-border pt-12 md:grid-cols-4">
-          {[
-            { label: "Domains", value: "eCommerce · IoT · FinTech" },
-            { label: "Solutions", value: "ERP · CMS · Custom" },
-            { label: "Clients", value: "Enterprise & SME" },
-            { label: "Approach", value: "Process-First" },
-          ].map((item) => (
-            <div key={item.label}>
-              <p className="text-[10px] font-bold tracking-widest text-neutral-600 uppercase">
-                {item.label}
-              </p>
-              <p className="mt-2 text-sm font-semibold text-black">{item.value}</p>
-            </div>
-          ))}
-        </div>
+
+        <HeroGraphic />
       </div>
-    </section>
+    </HomeSection>
   );
 }

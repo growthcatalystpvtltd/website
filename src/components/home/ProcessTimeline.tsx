@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Compass,
   LayoutTemplate,
@@ -7,6 +6,7 @@ import {
   Rocket,
   TrendingUp,
 } from "lucide-react";
+import HomeSection from "@/components/home/HomeSection";
 
 const steps = [
   {
@@ -55,18 +55,14 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="relative overflow-hidden border-t border-neutral-800 bg-black px-6 py-32 text-neutral-400">
-      <Image
-        src="/process-lines.svg"
-        alt=""
-        width={480}
-        height={360}
-        aria-hidden
-        className="pointer-events-none absolute top-0 right-0 w-[min(55vw,480px)] max-w-none opacity-90 select-none"
-        priority={false}
-      />
-
-      <div className="relative z-10 mx-auto max-w-6xl">
+    <HomeSection
+      className="border-t border-neutral-800 bg-black px-6 py-32 text-neutral-400"
+      lines={[
+        { src: "/lines-process.svg", placement: "top-right", speed: 0.3, opacity: 0.85 },
+        { src: "/lines-process-accent.svg", placement: "bottom-left", speed: 0.45, opacity: 0.6 },
+      ]}
+    >
+      <div className="mx-auto max-w-6xl">
         <div className="max-w-xl">
           <p className="text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase">
             Our Process
@@ -98,6 +94,6 @@ export default function ProcessTimeline() {
           ))}
         </div>
       </div>
-    </section>
+    </HomeSection>
   );
 }
