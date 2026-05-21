@@ -12,20 +12,37 @@ export default function ContactForm() {
     message: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage("");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error();
+      const data = (await res.json().catch(() => ({}))) as {
+        error?: string;
+        fields?: Record<string, string[] | undefined>;
+      };
+      if (!res.ok) {
+        const fieldMsg = data.fields
+          ? Object.values(data.fields)
+              .flat()
+              .filter(Boolean)
+              .join(" ")
+          : "";
+        setErrorMessage(fieldMsg || data.error || "Failed to send. Please try again.");
+        setStatus("error");
+        return;
+      }
       setForm({ name: "", email: "", company: "", subject: "", message: "" });
       setStatus("success");
     } catch {
+      setErrorMessage("Failed to send. Please try again or email us directly.");
       setStatus("error");
     }
   }
@@ -112,11 +129,13 @@ export default function ContactForm() {
         <textarea
           id="message"
           required
+          minLength={10}
           rows={6}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
           className={inputClass}
         />
+        <p className="mt-2 text-[10px] text-neutral-600">Minimum 10 characters</p>
       </div>
       <button
         type="submit"
@@ -134,7 +153,7 @@ export default function ContactForm() {
       </button>
       {status === "error" && (
         <p className="text-center text-sm text-red-600">
-          Failed to send. Please try again or email us directly.
+          {errorMessage || "Failed to send. Please try again or email us directly."}
         </p>
       )}
     </form>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Package, Check, ArrowUpRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { getProductIcon } from "@/lib/product-icons";
 import { getSiteSetting } from "@/lib/site-settings";
 
 export const metadata: Metadata = {
@@ -40,10 +41,12 @@ export default async function ProductsPage() {
           </div>
         ) : (
           <div className="mt-20 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
-              <article key={product.id} className="bg-white p-8">
-                <span className="inline-flex h-12 w-12 items-center justify-center border border-black bg-black text-white">
-                  <Package size={20} />
+            {products.map((product) => {
+              const Icon = getProductIcon(product.slug);
+              return (
+              <article key={product.id} className="group bg-white p-8 transition-colors hover:bg-neutral-50">
+                <span className="inline-flex h-12 w-12 items-center justify-center border border-black bg-black text-white transition-colors group-hover:bg-white group-hover:text-black">
+                  <Icon size={20} />
                 </span>
                 <h2 className="mt-6 text-lg font-bold">{product.name}</h2>
                 <p className="mt-4 text-sm leading-relaxed text-neutral-700 line-clamp-4">
@@ -60,7 +63,8 @@ export default async function ProductsPage() {
                   </ul>
                 )}
               </article>
-            ))}
+            );
+            })}
           </div>
         )}
 

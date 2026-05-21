@@ -48,7 +48,7 @@ export default function ClientSlider({ clients = fallbackClients }: ClientSlider
                 <img
                   src={client.logoUrl}
                   alt={client.name}
-                  className="h-10 w-auto max-w-[160px] object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                  className="h-16 w-auto max-w-[180px] object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0"
                 />
               ) : (
                 <span className="whitespace-nowrap text-lg font-bold tracking-widest text-neutral-700 uppercase">

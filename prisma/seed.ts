@@ -191,6 +191,24 @@ async function main() {
       features: ["MQTT & Modbus support", "Edge analytics", "Mobile alerts", "Historical data store"],
       order: 4,
     },
+    {
+      id: "seed-prod-5",
+      name: "CatalystAI",
+      slug: "catalyst-ai",
+      description:
+        "Production-ready AI platform for Nepali businesses — LLM-powered assistants, document intelligence, forecasting, and workflow automation integrated with your existing systems.",
+      features: ["LLM chat & assistants", "Document OCR & extraction", "Demand forecasting", "OpenAI & self-hosted models"],
+      order: 5,
+    },
+    {
+      id: "seed-prod-6",
+      name: "CatalystLogistics",
+      slug: "catalyst-logistics",
+      description:
+        "End-to-end logistics and fleet management for distributors and couriers — route optimization, live tracking, COD reconciliation, and integrations with Nepali delivery partners.",
+      features: ["Live GPS tracking", "Route optimization", "COD & settlement", "Courier API integrations"],
+      order: 6,
+    },
   ];
   for (const p of products) {
     await prisma.product.upsert({

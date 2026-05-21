@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Compass,
   LayoutTemplate,
@@ -54,33 +55,43 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="border-t border-border bg-white px-6 py-32">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden border-t border-neutral-800 bg-black px-6 py-32 text-neutral-400">
+      <Image
+        src="/process-lines.svg"
+        alt=""
+        width={480}
+        height={360}
+        aria-hidden
+        className="pointer-events-none absolute top-0 right-0 w-[min(55vw,480px)] max-w-none opacity-90 select-none"
+        priority={false}
+      />
+
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="max-w-xl">
-          <p className="text-xs font-bold tracking-[0.3em] text-neutral-700 uppercase">
+          <p className="text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase">
             Our Process
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
             Six disciplined steps to deliver excellence
           </h2>
-          <p className="mt-4 text-sm font-medium leading-relaxed text-neutral-800">
+          <p className="mt-4 text-sm font-medium leading-relaxed text-neutral-400">
             Growth Catalyst is strictly process-oriented. Our methodology eliminates ambiguity and ensures predictable, high-quality outcomes for every project.
           </p>
         </div>
 
-        <div className="mt-20 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-px border border-neutral-800 bg-neutral-800 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
-            <article key={step.number} className="bg-white p-8">
+            <article key={step.number} className="bg-neutral-950 p-8">
               <div className="flex items-center justify-between">
-                <span className="inline-flex h-10 w-10 items-center justify-center border border-black bg-black text-white">
+                <span className="inline-flex h-10 w-10 items-center justify-center border border-white bg-white text-black">
                   <step.icon size={18} />
                 </span>
-                <span className="text-3xl font-bold tracking-tight text-neutral-200">
+                <span className="text-3xl font-bold tracking-tight text-neutral-400">
                   {step.number}
                 </span>
               </div>
-              <h3 className="mt-6 text-lg font-bold">{step.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-neutral-700">
+              <h3 className="mt-6 text-lg font-bold text-neutral-400">{step.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-neutral-400">
                 {step.description}
               </p>
             </article>

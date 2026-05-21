@@ -38,14 +38,21 @@ body {
   color: #fff;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: #000;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
 
-p {
-  color: #262626;
+  p {
+    color: #262626;
+  }
 }
 
 @keyframes marquee {

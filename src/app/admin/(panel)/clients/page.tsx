@@ -35,7 +35,20 @@ export default async function AdminClientsPage() {
               clients.map((c) => (
                 <tr key={c.id} className="border-b border-border last:border-0">
                   <td className="px-6 py-4 font-semibold">{c.name}</td>
-                  <td className="px-6 py-4 text-neutral-700 text-xs">{c.logoUrl ?? "—"}</td>
+                  <td className="px-6 py-4">
+                    {c.logoUrl ? (
+                      <div className="flex h-12 w-28 items-center justify-center border border-border bg-neutral-50 p-2">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={c.logoUrl}
+                          alt={`${c.name} logo`}
+                          className="max-h-full max-w-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-xs text-neutral-500">No logo</span>
+                    )}
+                  </td>
                   <td className="px-6 py-4 text-neutral-700">{c.order}</td>
                   <td className="px-6 py-4">
                     <span className={`text-[10px] font-semibold tracking-widest uppercase ${c.active ? "text-black" : "text-neutral-500"}`}>
