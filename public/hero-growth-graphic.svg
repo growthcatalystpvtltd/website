@@ -1,49 +1,35 @@
-<svg width="560" height="720" viewBox="0 0 560 720" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <!-- Growth trajectory -->
-  <path d="M80 620C180 520 220 380 280 280C340 180 400 120 480 80" stroke="black" stroke-opacity="0.35" stroke-width="1.5"/>
-  <path d="M80 620C200 480 260 320 360 200C420 140 460 100 500 60" stroke="black" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="6 10"/>
-
-  <!-- Process pipeline (6 steps) -->
-  <path d="M200 580V120" stroke="black" stroke-opacity="0.22" stroke-width="1"/>
-  <circle cx="200" cy="580" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
-  <circle cx="200" cy="488" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
-  <circle cx="200" cy="396" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
-  <circle cx="200" cy="304" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
-  <circle cx="200" cy="212" r="6" stroke="black" stroke-opacity="0.4" stroke-width="1.25" fill="white"/>
-  <circle cx="200" cy="120" r="8" stroke="black" stroke-width="1.5" fill="black" fill-opacity="0.08"/>
-
-  <text x="224" y="584" fill="black" fill-opacity="0.45" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">DISCOVER</text>
-  <text x="224" y="492" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">PLAN</text>
-  <text x="224" y="400" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">BUILD</text>
-  <text x="224" y="308" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">QA</text>
-  <text x="224" y="216" fill="black" fill-opacity="0.4" font-family="system-ui,sans-serif" font-size="11" font-weight="600" letter-spacing="0.12em">DEPLOY</text>
-  <text x="224" y="124" fill="black" fill-opacity="0.5" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="0.12em">GROW</text>
-
-  <!-- Catalyst hub -->
-  <circle cx="380" cy="360" r="52" stroke="black" stroke-opacity="0.3" stroke-width="1.25" fill="black" fill-opacity="0.04"/>
-  <circle cx="380" cy="360" r="8" fill="black" fill-opacity="0.35"/>
-  <text x="380" y="432" text-anchor="middle" fill="black" fill-opacity="0.5" font-family="system-ui,sans-serif" font-size="10" font-weight="700" letter-spacing="0.2em">CATALYST</text>
-
-  <!-- Domain branches (toward content / left) -->
-  <path d="M328 360H120" stroke="black" stroke-opacity="0.2" stroke-width="1"/>
-  <path d="M360 300C300 280 200 260 120 240" stroke="black" stroke-opacity="0.18" stroke-width="1"/>
-  <path d="M360 420C300 440 200 460 120 480" stroke="black" stroke-opacity="0.18" stroke-width="1"/>
-  <path d="M400 320C440 260 460 200 480 140" stroke="black" stroke-opacity="0.16" stroke-width="1"/>
-
-  <circle cx="120" cy="240" r="4" fill="black" fill-opacity="0.25"/>
-  <text x="132" y="244" fill="black" fill-opacity="0.42" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">eCOMMERCE</text>
-
-  <circle cx="120" cy="360" r="4" fill="black" fill-opacity="0.25"/>
-  <text x="132" y="364" fill="black" fill-opacity="0.42" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">FINTECH · ERP</text>
-
-  <circle cx="120" cy="480" r="4" fill="black" fill-opacity="0.25"/>
-  <text x="132" y="484" fill="black" fill-opacity="0.42" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">IoT · AI</text>
-
-  <circle cx="480" cy="140" r="4" fill="black" fill-opacity="0.22"/>
-  <text x="448" y="128" text-anchor="end" fill="black" fill-opacity="0.38" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">PROCESS</text>
-  <text x="448" y="142" text-anchor="end" fill="black" fill-opacity="0.38" font-family="system-ui,sans-serif" font-size="10" font-weight="600" letter-spacing="0.1em">FIRST</text>
-
-  <!-- Accent rings -->
-  <circle cx="380" cy="360" r="88" stroke="black" stroke-opacity="0.1" stroke-width="1"/>
-  <circle cx="380" cy="360" r="120" stroke="black" stroke-opacity="0.06" stroke-width="1"/>
+<svg viewBox="0 0 520 680" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M60 600 C160 500 210 360 280 260 C340 170 400 110 460 70" stroke="#000" stroke-opacity="0.35" stroke-width="1.5"/>
+  <path d="M60 600 C180 460 240 300 340 180 C400 120 440 80 480 50" stroke="#000" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="6 10"/>
+  <path d="M180 560 V100" stroke="#000" stroke-opacity="0.22" stroke-width="1"/>
+  <circle cx="180" cy="560" r="6" stroke="#000" stroke-opacity="0.45" stroke-width="1.25" fill="#fff"/>
+  <circle cx="180" cy="468" r="6" stroke="#000" stroke-opacity="0.45" stroke-width="1.25" fill="#fff"/>
+  <circle cx="180" cy="376" r="6" stroke="#000" stroke-opacity="0.45" stroke-width="1.25" fill="#fff"/>
+  <circle cx="180" cy="284" r="6" stroke="#000" stroke-opacity="0.45" stroke-width="1.25" fill="#fff"/>
+  <circle cx="180" cy="192" r="6" stroke="#000" stroke-opacity="0.45" stroke-width="1.25" fill="#fff"/>
+  <circle cx="180" cy="100" r="8" stroke="#000" stroke-width="1.5" fill="#000" fill-opacity="0.1"/>
+  <text x="204" y="564" fill="#000" fill-opacity="0.42" style="font:600 11px system-ui,sans-serif">DISCOVER</text>
+  <text x="204" y="472" fill="#000" fill-opacity="0.42" style="font:600 11px system-ui,sans-serif">PLAN</text>
+  <text x="204" y="380" fill="#000" fill-opacity="0.42" style="font:600 11px system-ui,sans-serif">BUILD</text>
+  <text x="204" y="288" fill="#000" fill-opacity="0.42" style="font:600 11px system-ui,sans-serif">QA</text>
+  <text x="204" y="196" fill="#000" fill-opacity="0.42" style="font:600 11px system-ui,sans-serif">DEPLOY</text>
+  <text x="204" y="104" fill="#000" fill-opacity="0.55" style="font:700 11px system-ui,sans-serif">GROW</text>
+  <circle cx="360" cy="340" r="110" stroke="#000" stroke-opacity="0.07" stroke-width="1"/>
+  <circle cx="360" cy="340" r="80" stroke="#000" stroke-opacity="0.12" stroke-width="1"/>
+  <circle cx="360" cy="340" r="48" stroke="#000" stroke-opacity="0.3" stroke-width="1.25" fill="#000" fill-opacity="0.04"/>
+  <circle cx="360" cy="340" r="7" fill="#000" fill-opacity="0.35"/>
+  <text x="360" y="408" text-anchor="middle" fill="#000" fill-opacity="0.5" style="font:700 10px system-ui,sans-serif">CATALYST</text>
+  <path d="M312 340 H100" stroke="#000" stroke-opacity="0.2" stroke-width="1"/>
+  <path d="M340 280 C280 260 180 240 100 220" stroke="#000" stroke-opacity="0.18" stroke-width="1"/>
+  <path d="M340 400 C280 420 180 440 100 460" stroke="#000" stroke-opacity="0.18" stroke-width="1"/>
+  <path d="M388 300 C428 240 450 180 470 120" stroke="#000" stroke-opacity="0.14" stroke-width="1"/>
+  <circle cx="100" cy="220" r="4" fill="#000" fill-opacity="0.28"/>
+  <text x="114" y="224" fill="#000" fill-opacity="0.42" style="font:600 10px system-ui,sans-serif">eCOMMERCE</text>
+  <circle cx="100" cy="340" r="4" fill="#000" fill-opacity="0.28"/>
+  <text x="114" y="344" fill="#000" fill-opacity="0.42" style="font:600 10px system-ui,sans-serif">FINTECH / ERP</text>
+  <circle cx="100" cy="460" r="4" fill="#000" fill-opacity="0.28"/>
+  <text x="114" y="464" fill="#000" fill-opacity="0.42" style="font:600 10px system-ui,sans-serif">IoT / AI</text>
+  <circle cx="470" cy="120" r="4" fill="#000" fill-opacity="0.22"/>
+  <text x="458" y="108" text-anchor="end" fill="#000" fill-opacity="0.38" style="font:600 10px system-ui,sans-serif">PROCESS</text>
+  <text x="458" y="122" text-anchor="end" fill="#000" fill-opacity="0.38" style="font:600 10px system-ui,sans-serif">FIRST</text>
 </svg>
