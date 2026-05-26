@@ -79,7 +79,7 @@ export default async function TeamPage() {
                   rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-widest uppercase hover:underline"
                 >
-                  <LinkedinIcon size={12} />
+                  <LinkedinIcon size={16} />
                   Connect
                 </a>
               )}
