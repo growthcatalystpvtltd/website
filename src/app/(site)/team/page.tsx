@@ -36,7 +36,7 @@ export default async function TeamPage() {
       : [
           { id: "1", name: "Manoj Kumar Mahato", role: "Founder & CEO", bio: "-", imageUrl: "/team/manoj.png", linkedin: "https://www.linkedin.com/in/manojmahato/" },
           { id: "2", name: "Sailesh Kasaju", role: "Founder & CTO", bio: "-", imageUrl: "/team/sailesh.png", linkedin: "https://www.linkedin.com/in/saileshkasaju/" },
-          { id: "3", name: "Jivan Shrestha", role: "Founder & CPO", bio: "-", imageUrl: "/team/jivan.png", linkedin: "https://www.linkedin.com/in/jivanshr/" },
+          { id: "3", name: "Jivan Shrestha", role: "Founder & COO", bio: "-", imageUrl: "/team/jivan.png", linkedin: "https://www.linkedin.com/in/jivanshr/" },
         ];
 
   return (
