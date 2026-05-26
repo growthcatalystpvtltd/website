@@ -119,31 +119,30 @@ async function main() {
   const teamMembers = [
     {
       id: "seed-team-1",
-      name: "Suresh Sharma",
-      role: "Founder & CEO",
-      bio: "15+ years architecting enterprise software for banks, retailers, and government bodies across Nepal.",
+      name: "Manoj Kumar Mahato",
+      role: "-",
+      bio: "Guiding every engagement with process rigor and client focus.",
+      imageUrl: "/team/manoj.png",
+      linkedin: "https://www.linkedin.com/in/manojmahato/",
       order: 1,
     },
     {
       id: "seed-team-2",
-      name: "Anita Khadka",
-      role: "Head of Engineering",
-      bio: "Leads our full-stack engineering practice with focus on scalable, secure architectures.",
+      name: "Sailesh Kasaju",
+      role: "-",
+      bio: "Building robust, scalable solutions across web, mobile, and AI.",
+      imageUrl: "/team/sailesh.png",
+      linkedin: "https://www.linkedin.com/in/saileshkasaju/",
       order: 2,
     },
     {
       id: "seed-team-3",
-      name: "Bibek Tamang",
-      role: "Lead AI Engineer",
-      bio: "Builds production ML systems for FinTech, agritech, and customer analytics use cases.",
+      name: "Jivan Shrestha",
+      role: "-",
+      bio: "Crafting minimalist, user-centered experiences.",
+      imageUrl: "/team/jivan.png",
+      linkedin: "https://www.linkedin.com/in/jivanshr/",
       order: 3,
-    },
-    {
-      id: "seed-team-4",
-      name: "Priya Maharjan",
-      role: "Product & UX Lead",
-      bio: "Designs minimalist, user-centered interfaces grounded in business outcomes.",
-      order: 4,
     },
   ];
   for (const m of teamMembers) {
@@ -153,6 +152,11 @@ async function main() {
       create: { ...m, published: true },
     });
   }
+
+  await prisma.teamMember.updateMany({
+    where: { id: { notIn: teamMembers.map((m) => m.id) } },
+    data: { published: false },
+  });
 
   const products = [
     {

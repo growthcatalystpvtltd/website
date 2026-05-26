@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { slugify } from "@/lib/utils";
+import { parseDateInput, slugify } from "@/lib/utils";
 import { z } from "zod";
 
 const postSchema = z.object({
@@ -11,6 +11,7 @@ const postSchema = z.object({
   content: z.string().min(1).optional(),
   published: z.boolean().optional(),
   categoryId: z.string().optional(),
+  publishedAt: z.string().optional(),
 });
 
 export async function PUT(
@@ -25,10 +26,18 @@ export async function PUT(
   try {
     const body = await req.json();
     const data = postSchema.parse(body);
+    const { publishedAt, ...rest } = data;
 
-    const updateData = { ...data };
+    const updateData: Record<string, unknown> = { ...rest };
     if (data.title && !data.slug) {
       updateData.slug = slugify(data.title);
+    }
+    if (publishedAt !== undefined) {
+      const createdAt = parseDateInput(publishedAt);
+      if (!createdAt) {
+        return NextResponse.json({ error: "Invalid date" }, { status: 400 });
+      }
+      updateData.createdAt = createdAt;
     }
 
     const post = await prisma.blogPost.update({

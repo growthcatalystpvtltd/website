@@ -34,9 +34,9 @@ export default async function TeamPage() {
     members.length > 0
       ? members
       : [
-          { id: "1", name: "Leadership Team", role: "Strategy & Delivery", bio: "Guiding every engagement with process rigor and client focus.", imageUrl: null, linkedin: null },
-          { id: "2", name: "Engineering Team", role: "Development & QA", bio: "Building robust, scalable solutions across web, mobile, and AI.", imageUrl: null, linkedin: null },
-          { id: "3", name: "Design Team", role: "UX & Product", bio: "Crafting minimalist, user-centered experiences.", imageUrl: null, linkedin: null },
+          { id: "1", name: "Manoj Kumar Mahato", role: "-", bio: "sdfsd", imageUrl: "/team/manoj.png", linkedin: "https://www.linkedin.com/in/manojmahato/" },
+          { id: "2", name: "Sailesh Kasaju", role: "-", bio: "sdfds", imageUrl: "/team/sailesh.png", linkedin: "https://www.linkedin.com/in/saileshkasaju/" },
+          { id: "3", name: "Jivan Shrestha", role: "-", bio: "sdfdsf", imageUrl: "/team/jivan.png", linkedin: "https://www.linkedin.com/in/jivanshr/" },
         ];
 
   return (
@@ -51,14 +51,14 @@ export default async function TeamPage() {
         <div className="mt-20 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
           {display.map((member) => (
             <article key={member.id} className="bg-white p-8">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center border border-border bg-neutral-100">
+              <div className="mb-6 flex h-80 w-64 items-center justify-center border border-border bg-neutral-100">
                 {member.imageUrl ? (
                   <Image
                     src={member.imageUrl}
                     alt={member.name}
-                    width={64}
-                    height={64}
-                    className="h-full w-full object-cover grayscale"
+                    width={228}
+                    height={228}
+                    className="h-full w-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
                     unoptimized
                   />
                 ) : (

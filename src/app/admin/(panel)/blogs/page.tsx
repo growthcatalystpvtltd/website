@@ -30,6 +30,7 @@ export default async function AdminBlogsPage() {
           <thead>
             <tr className="border-b border-border text-left text-xs tracking-widest uppercase text-muted">
               <th className="px-6 py-4">Title</th>
+              <th className="px-6 py-4">Date</th>
               <th className="px-6 py-4">Category</th>
               <th className="px-6 py-4">Status</th>
               <th className="px-6 py-4">Actions</th>
@@ -38,7 +39,7 @@ export default async function AdminBlogsPage() {
           <tbody>
             {posts.length === 0 ? (
               <tr>
-                <td colSpan={4} className="px-6 py-12 text-center text-muted">
+                <td colSpan={5} className="px-6 py-12 text-center text-muted">
                   No posts yet. Create your first blog post.
                 </td>
               </tr>
@@ -46,6 +47,13 @@ export default async function AdminBlogsPage() {
               posts.map((post) => (
                 <tr key={post.id} className="border-b border-border last:border-0">
                   <td className="px-6 py-4 font-medium">{post.title}</td>
+                  <td className="px-6 py-4 text-muted whitespace-nowrap">
+                    {new Date(post.createdAt).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </td>
                   <td className="px-6 py-4 text-muted">{post.category.name}</td>
                   <td className="px-6 py-4">
                     <span className={`text-xs uppercase ${post.published ? "text-black" : "text-muted"}`}>

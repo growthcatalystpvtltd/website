@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toDateInputValue } from "@/lib/utils";
 
 interface Category {
   id: string;
@@ -18,6 +19,7 @@ interface BlogPostFormProps {
     content: string;
     published: boolean;
     categoryId: string;
+    createdAt: string | Date;
   };
 }
 
@@ -31,6 +33,7 @@ export default function BlogPostForm({ categories, post }: BlogPostFormProps) {
     content: post?.content ?? "",
     published: post?.published ?? false,
     categoryId: post?.categoryId ?? categories[0]?.id ?? "",
+    publishedAt: post ? toDateInputValue(post.createdAt) : toDateInputValue(new Date()),
   });
 
   const inputClass =
@@ -76,6 +79,19 @@ export default function BlogPostForm({ categories, post }: BlogPostFormProps) {
           placeholder="auto-generated from title if empty"
           className={inputClass}
         />
+      </div>
+      <div>
+        <label className="mb-2 block text-xs tracking-widest uppercase">Publish Date *</label>
+        <input
+          type="date"
+          required
+          value={form.publishedAt}
+          onChange={(e) => setForm({ ...form, publishedAt: e.target.value })}
+          className={inputClass}
+        />
+        <p className="mt-1 text-xs text-neutral-600">
+          Shown on the public blog listing and post page.
+        </p>
       </div>
       <div>
         <label className="mb-2 block text-xs tracking-widest uppercase">Category *</label>
