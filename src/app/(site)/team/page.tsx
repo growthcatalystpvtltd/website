@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Team",
   description:
-    "Meet the team behind Growth Catalyst — engineers, designers, and consultants building Nepal's process-driven technology firm.",
+    "Meet the team behind Growth Catalyst : engineers, designers, and consultants building Nepal's process-driven technology firm.",
 };
 
 export default async function TeamPage() {

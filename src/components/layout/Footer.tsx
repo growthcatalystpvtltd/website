@@ -44,8 +44,8 @@ export default function Footer() {
   const socials = [
     { url: siteConfig.social.linkedin, label: "LinkedIn", Icon: LinkedinIcon },
     { url: siteConfig.social.facebook, label: "Facebook", Icon: FacebookIcon },
-    { url: siteConfig.social.instagram, label: "Instagram", Icon: InstagramIcon },
-    { url: siteConfig.social.twitter, label: "Twitter", Icon: TwitterIcon },
+    // { url: siteConfig.social.instagram, label: "Instagram", Icon: InstagramIcon },
+    // { url: siteConfig.social.twitter, label: "Twitter", Icon: TwitterIcon },
   ].filter((s) => s.url);
 
   return (

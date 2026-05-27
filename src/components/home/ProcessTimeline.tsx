@@ -14,7 +14,7 @@ const steps = [
     icon: Compass,
     title: "Discovery & Alignment",
     description:
-      "We map your business objectives, stakeholders, and constraints. Every engagement begins with clarity — not assumptions.",
+      "We map your business objectives, stakeholders, and constraints. Every engagement begins with clarity, not assumptions.",
   },
   {
     number: "02",

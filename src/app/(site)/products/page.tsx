@@ -8,7 +8,7 @@ import { getSiteSetting } from "@/lib/site-settings";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Explore Growth Catalyst's products — industry-specific platforms and tools for businesses operating in Nepal.",
+    "Explore Growth Catalyst's products : industry-specific platforms and tools for businesses operating in Nepal.",
 };
 
 export default async function ProductsPage() {

@@ -10,7 +10,6 @@ import { ArrowUpRight } from "lucide-react";
 export default async function HomePage() {
   const [
     eyebrow,
-    headline,
     subheadline,
     ctaPrimary,
     ctaSecondary,
@@ -19,10 +18,9 @@ export default async function HomePage() {
     clients,
   ] = await Promise.all([
     getSiteSetting("hero_eyebrow", "Software & IT Consulting · Nepal"),
-    getSiteSetting("hero_headline", "We catalyze growth through disciplined process."),
     getSiteSetting(
       "hero_subheadline",
-      "Growth Catalyst delivers software & IT consulting — from eCommerce and FinTech to ERP and AI — with a rigorous, process-first methodology that accelerates your business."
+      "Growth Catalyst delivers software & IT consulting from eCommerce and FinTech to ERP and AI with a rigorous, process-first methodology that accelerates your business."
     ),
     getSiteSetting("hero_cta_primary", "Start a Project"),
     getSiteSetting("hero_cta_secondary", "Our Philosophy"),
@@ -35,18 +33,17 @@ export default async function HomePage() {
       .findMany({ where: { active: true }, orderBy: { order: "asc" } })
       .catch(() => []),
   ]);
-
   return (
     <>
       <Hero
         eyebrow={eyebrow}
-        headline={headline}
+        headline="We organize. You grow."
         subheadline={subheadline}
         ctaPrimary={ctaPrimary}
         ctaSecondary={ctaSecondary}
       />
       <ProcessTimeline />
-      <ClientSlider clients={clients.length > 0 ? clients : undefined} />
+      <ClientSlider clients={clients.length < 0 ? clients : undefined} />
 
       <HomeSection
         className="border-t border-border bg-white px-6 py-32"

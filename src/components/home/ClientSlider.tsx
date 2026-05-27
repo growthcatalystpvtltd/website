@@ -7,14 +7,14 @@ interface Client {
 }
 
 const fallbackClients: Client[] = [
-  { id: "1", name: "FinCorp Nepal" },
-  { id: "2", name: "RetailPro" },
-  { id: "3", name: "TechVentures" },
-  { id: "4", name: "AgriLink" },
-  { id: "5", name: "HealthPlus" },
-  { id: "6", name: "EduStream" },
-  { id: "7", name: "LogiTrack" },
-  { id: "8", name: "PayNepal" },
+  { id: "1", name: "Saathimart" },
+  { id: "2", name: "Magicboox" },
+  { id: "3", name: "SamsungPlaza" },
+  { id: "4", name: "SyBazzar" },
+  { id: "5", name: "BSTC thanka" },
+  { id: "6", name: "Tekka" },
+  { id: "7", name: "AC Ghar" },
+  { id: "8", name: "LET" },
 ];
 
 interface ClientSliderProps {

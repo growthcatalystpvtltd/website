@@ -13,8 +13,8 @@ interface HeroProps {
 
 export default function Hero({
   eyebrow = "Software & IT Consulting · Nepal",
-  headline = "We catalyze growth through disciplined process.",
-  subheadline = "Growth Catalyst delivers software & IT consulting — from eCommerce and FinTech to ERP and AI — with a rigorous, process-first methodology that accelerates your business.",
+  headline = "We organize. You grow.",
+  subheadline = "Growth Catalyst delivers software & IT consulting from eCommerce and FinTech to ERP and AI with a rigorous, process-first methodology that accelerates your business.",
   ctaPrimary = "Start a Project",
   ctaSecondary = "Our Philosophy",
 }: HeroProps) {

@@ -39,7 +39,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
           Insights & Updates
         </h1>
         <p className="mt-6 max-w-xl text-base font-medium text-neutral-800">
-          Thoughts on technology, process, and business growth from the Growth Catalyst team — written for Nepal&apos;s IT landscape.
+          Thoughts on technology, process, and business growth from the Growth Catalyst team written for Nepal&apos;s IT landscape.
         </p>
 
         <BlogFilter categories={categories} activeCategory={category} />
