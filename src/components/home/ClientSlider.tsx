@@ -26,7 +26,7 @@ export default function ClientSlider({ clients = fallbackClients }: ClientSlider
 
   return (
     <HomeSection
-      className="border-t border-border bg-white px-6 py-24"
+      className="border-t border-border bg-white px-6 py-24 hidden"
       // lines={[
       //   { src: "/lines-clients.svg", placement: "top-left", speed: 0.32, opacity: 0.68 },
       //   { src: "/lines-clients-accent.svg", placement: "bottom-right", speed: 0.2, opacity: 0.52 },
