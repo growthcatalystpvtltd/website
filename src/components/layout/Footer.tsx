@@ -14,7 +14,7 @@ import { siteConfig, getTelHref } from "@/lib/site-config";
 const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/products", label: "Products" },
+  // { href: "/products", label: "Products" },
   { href: "/team", label: "Team" },
   { href: "/blogs", label: "Blogs" },
   { href: "/contact", label: "Contact" },
